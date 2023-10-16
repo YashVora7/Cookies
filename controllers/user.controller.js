@@ -30,9 +30,7 @@ const login = async (req,res)=>{
     else if(!password == pass){
         res.send("Password is incorrect")
     }
-    else{
-        res.send("Login Successfully")
-    }
+    res.cookie("id",users.id).send("checking")
 
 }
 
@@ -40,4 +38,8 @@ const ui = (req,res)=>{
     res.render("index")
 }
 
-module.exports = {get, post, ui, login}
+const loginUI = (req,res)=>{
+    res.render("login")
+}
+
+module.exports = {get, post, ui, login, loginUI}
